@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Appointment Booking</title>
+    <style>
+          /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #004d74; 
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        nav a {
+            color: white;
+            font-size: 20px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffeb3b; 
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #b3e5fc;
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 52px;
+            color: #0277bd;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #0277bd;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            background-color: #0288d1;
+            color: white;
+            padding: 18px 36px;
+            font-size: 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            background-color: #01579b;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* General Layout */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 70px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            color: #004d74;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        /* Form Section */
+        .appointment-form {
+            display: flex;
+            justify-content: space-between;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            width: 48%;
+            background-color: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+
+        .form-group h3 {
+            font-size: 24px;
+            color: #0277bd;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border: 1px solid #0288d1;
+            box-shadow: 0 0 8px rgba(0, 136, 209, 0.3);
+        }
+
+        .form-group button {
+            width: 100%;
+            background-color: #0288d1;
+            color: white;
+            padding: 16px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group button:hover {
+            background-color: #01579b;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Payment Section */
+        .payment-section {
+            margin-top: 60px;
+            padding: 35px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-section h3 {
+            font-size: 28px;
+            color: #0277bd;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: space-around;
+            gap: 35px;
+        }
+
+        .payment-method {
+            text-align: center;
+            width: 160px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .payment-method:hover {
+            transform: scale(1.05);
+        }
+
+        .payment-method img {
+            width: 110px;
+            height: 110px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .payment-method img:hover {
+            transform: scale(1.1);
+        }
+
+        .payment-method p {
+            font-size: 16px;
+            color: #0277bd;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #004d74;
+            color: white;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 60px;
+        }
+
+        footer p {
+            font-size: 16px;
+        }
+
+        /* About Us Section */
+        #about-us {
+            padding: 60px 20px;
+            background-color: #e3f2fd;
+        }
+
+        #about-us h3 {
+            font-size: 32px;
+            color: #0277bd;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        #about-us p {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Dental Appointment Booking</h1>
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#appointment-form">Services</a>
+            <a href="#about-us">About Us</a>
+            <a href="#payment-methods">Payment Methods</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div>
+            <h2>Book Your Next Dental Appointment</h2>
+            <p>Make your visit comfortable with our easy online booking system!</p>
+            <a href="#appointment-form" class="cta-button">Book Appointment</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-us">
+        <h3>About Us</h3>
+        <p>At Smile Care Clinic, we prioritize your oral health. With over 20 years of experience, our team of professionals is committed to providing exceptional dental care. We offer a wide range of services, from routine checkups to advanced treatments, all in a comfortable and welcoming environment.</p>
+    </section>
+
+    <!-- Appointment Form Section -->
+    <div class="container" id="appointment-form">
+        <h2 class="section-title">Schedule Your Appointment</h2>
+        <div class="appointment-form">
+            <div class="form-group">
+                <h3>Personal Information</h3>
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email Address">
+                <input type="phone" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+                <h3>Appointment Details</h3>
+                <select>
+                    <option>Choose a Service</option>
+                    <option>Routine Checkup</option>
+                    <option>Teeth Whitening</option>
+                    <option>Root Canal</option>
+                    <option>Orthodontics</option>
+                </select>
+                <input type="date">
+                <input type="time">
+                <button id="bookAppointmentButton">Book Appointment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Methods Section -->
+    <section id="Available payment methods" class="payment-section">
+        <h3>Available payment methods</h3>
+        <div class="payment-methods">
+            <div class="payment-method">
+                <img src="https://static.vecteezy.com/ti/vetor-gratis/p3/574730-icone-do-cartao-de-credito-gr%C3%A1tis-vetor.jpg" alt="Credit Card">
+                <p>Credit Card</p>
+            </div>
+            <div class="payment-method">
+                <img src="https://www.svgrepo.com/show/504376/gcash.svg" alt="Gcash">
+                <p>Gcash</p>
+            </div>
+            <div class="payment-method">
+                <img src="https://static.vecteezy.com/system/resources/previews/009/748/507/original/philippines-currency-icon-symbol-php-peso-money-paper-illustration-vector.jpg" alt="Cash">
+                <p>Cash</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Smile Care Clinic. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Add an event listener for the Book Appointment button
+        document.getElementById('bookAppointmentButton').addEventListener('click', function () {
+            alert('Your appointment has been successfully booked! We look forward to seeing you.');
+        });
+    </script>
+</body>
+</html>
